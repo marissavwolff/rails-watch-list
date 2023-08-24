@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1159&q=80);">
+  <div class="container">
+    <h1>Best Movies of <strong>all</strong> time!</h1>
+    <p>Check out our most favorite movies lists</p>
+  </div>
+</div>
+
+<div class="cards m-4">
+  <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1535016120720-40c646be5580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW92aWV8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=400&q=60)">
+        <%= link_to list.name, list_path(list) %>
+      </div>
+  <% end %>
+</div>
+
+<div class="btn btn-primary m-4">
+<%= link_to "Add a new List", new_list_path %>
+</div>

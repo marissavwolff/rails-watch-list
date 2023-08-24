@@ -1,0 +1,11 @@
+<nav class="navbar navbar-light bg-light p-4">
+ <%= link_to "Lists", lists_path, class: "btn btn-primary" %>
+ </nav>
+<div class="container p-4">
+<%= simple_form_for @list do |f| %>
+  <!-- [...] -->
+  <%= f.input :name %>
+ <%= f.submit "create list", class: "btn btn-primary"%>
+<% end %>
+
+ </div>
