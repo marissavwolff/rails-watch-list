@@ -1,0 +1,3 @@
+<p>Are you sure you want to delete this bookmark?</p>
+<%= link_to 'Cancel', list_path(@bookmark.list) %>
+<%= link_to 'Delete Bookmark', bookmark_path(@bookmark), method: :delete, data: { confirm: 'Are you sure?' } %>

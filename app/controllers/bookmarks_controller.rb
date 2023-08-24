@@ -1,6 +1,38 @@
+# app/controllers/bookmarks_controller.rb
 class BookmarksController < ApplicationController
-  def show
+  before_action :set_bookmark, only: :destroy
+  before_action :set_list, only: [:new, :create]
+
+  def new
+    @bookmark = Bookmark.new
+  end
+
+  def create
+    @bookmark = @list.bookmarks.new(bookmark_params)
+    @bookmark.list = @list
+    if @bookmark.save
+      redirect_to list_path(@list), notice: 'Bookmark was successfully added.'
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @bookmark.destroy
+    redirect_to list_path(@bookmark.list), status: :see_other
+  end
+
+  private
+
+  def set_list
+    @list = List.find(params[:list_id])
+  end
+
+  def bookmark_params
+    params.require(:bookmark).permit(:comment, :movie_id)
+  end
+
+  def set_bookmark
     @bookmark = Bookmark.find(params[:id])
-    @lists = @bookmark.lists.includes(:movies)
   end
 end

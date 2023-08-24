@@ -1,11 +1,13 @@
-<nav class="navbar navbar-light bg-light p-4">
- <%= link_to "Lists", lists_path, class: "btn btn-primary" %>
- </nav>
-<div class="container p-4">
-<%= simple_form_for @list do |f| %>
-  <!-- [...] -->
-  <%= f.input :name %>
- <%= f.submit "create list", class: "btn btn-primary"%>
-<% end %>
-
- </div>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Create a new list</h3>
+        <%= simple_form_for @list do |f| %>
+          <%= f.input :name, placeholder: 'Drama' %>
+          <%= f.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
