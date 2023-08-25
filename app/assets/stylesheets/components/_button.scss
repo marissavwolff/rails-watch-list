@@ -17,3 +17,16 @@
   background: #6a757e;
   transition: background 0.3s ease;
 }
+
+.btn-nav {
+  color: rgb(198, 185, 185);
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #46514c;
+  text-decoration: none;
+
+  &:hover {
+    color:#6a757e;
+    background: white
+  }
+}
